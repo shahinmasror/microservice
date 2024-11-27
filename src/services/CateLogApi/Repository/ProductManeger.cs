@@ -11,5 +11,10 @@ namespace CateLogApi.Repository
         public ProductManeger() : base(new CatelogDbContext())
         {
         }
+
+        public List<Product> GetByCategory( string Category )
+        {
+            return GetAll(c => c.Category == Category).ToList();
+        }
     }
 }

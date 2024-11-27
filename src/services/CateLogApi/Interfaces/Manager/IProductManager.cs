@@ -6,5 +6,7 @@ namespace CateLogApi.Interfaces.Manager
     public interface IProductManager : ICommonManager<Product>
     {
 
+        public List<Product> GetByCategory(string Category);
+
     }
 }
