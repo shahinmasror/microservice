@@ -5,7 +5,9 @@ VisualStudioVersion = 17.11.35208.52
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{676566F3-D4E7-4E96-88C1-6BE93C036E2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CateLogApi", "services\CateLogApi\CateLogApi.csproj", "{DB3276A1-1D26-429A-A0EA-A598B1E85F5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CateLogApi", "services\CateLogApi\CateLogApi.csproj", "{DB3276A1-1D26-429A-A0EA-A598B1E85F5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketAPI", "BasketAPI\BasketAPI.csproj", "{9DA3A4ED-C708-4F9E-BB0A-452A2F1FB53D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +19,17 @@ Global
 		{DB3276A1-1D26-429A-A0EA-A598B1E85F5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB3276A1-1D26-429A-A0EA-A598B1E85F5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB3276A1-1D26-429A-A0EA-A598B1E85F5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DA3A4ED-C708-4F9E-BB0A-452A2F1FB53D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DA3A4ED-C708-4F9E-BB0A-452A2F1FB53D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DA3A4ED-C708-4F9E-BB0A-452A2F1FB53D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DA3A4ED-C708-4F9E-BB0A-452A2F1FB53D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DB3276A1-1D26-429A-A0EA-A598B1E85F5E} = {676566F3-D4E7-4E96-88C1-6BE93C036E2E}
+		{9DA3A4ED-C708-4F9E-BB0A-452A2F1FB53D} = {676566F3-D4E7-4E96-88C1-6BE93C036E2E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {42394982-9505-452F-9C86-AFB4E536E352}
