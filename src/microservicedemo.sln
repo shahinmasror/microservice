@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CateLogApi", "services\Cate
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketAPI", "BasketAPI\BasketAPI.csproj", "{9DA3A4ED-C708-4F9E-BB0A-452A2F1FB53D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketApi2", "BasketApi2\BasketApi2.csproj", "{FDA824B1-7F34-454E-BE2E-CEFF6028BF62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{9DA3A4ED-C708-4F9E-BB0A-452A2F1FB53D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DA3A4ED-C708-4F9E-BB0A-452A2F1FB53D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DA3A4ED-C708-4F9E-BB0A-452A2F1FB53D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDA824B1-7F34-454E-BE2E-CEFF6028BF62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDA824B1-7F34-454E-BE2E-CEFF6028BF62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDA824B1-7F34-454E-BE2E-CEFF6028BF62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDA824B1-7F34-454E-BE2E-CEFF6028BF62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +36,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{DB3276A1-1D26-429A-A0EA-A598B1E85F5E} = {676566F3-D4E7-4E96-88C1-6BE93C036E2E}
 		{9DA3A4ED-C708-4F9E-BB0A-452A2F1FB53D} = {676566F3-D4E7-4E96-88C1-6BE93C036E2E}
+		{FDA824B1-7F34-454E-BE2E-CEFF6028BF62} = {676566F3-D4E7-4E96-88C1-6BE93C036E2E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {42394982-9505-452F-9C86-AFB4E536E352}
