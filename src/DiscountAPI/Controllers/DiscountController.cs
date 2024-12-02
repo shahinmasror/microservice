@@ -20,17 +20,17 @@ namespace DiscountAPI.Controllers
 
         [HttpGet]   
 
-        public async Task<IActionResult> GetDiscount(string ProductId)
+        public async Task<IActionResult> GetDiscount(long ProductId)
         {
-            var dis = _configuration.GetDiscount(ProductId);
+            var dis = await _configuration.GetDiscount(ProductId);
             return Ok(dis);
         }
         [HttpPost]
 
-        public async Task<IActionResult> CreateCupon(Cupon cupon)
+        public async Task<IActionResult> CreateCupon(string name)
         {
-            var dis = _configuration.CreateCupon(cupon);
-            if (cupon == null) {
+            var dis = _configuration.CreateCupon(name);
+            if (dis == null) {
                 BadRequest();
             
             }
@@ -38,9 +38,9 @@ namespace DiscountAPI.Controllers
         }
         [HttpPost]
 
-        public async Task<IActionResult> UpdateCupon(Cupon cupon)
+        public async Task<IActionResult> UpdateCupon(string name)
         {
-            var dis = _configuration.UpdateCupon(cupon);
+            var dis = _configuration.UpdateCupon(name);
             if (dis != null)
             {
                 return Ok("Update SuccessFully");
@@ -49,7 +49,7 @@ namespace DiscountAPI.Controllers
             return BadRequest();
         }
         [HttpDelete]
-          public async Task<IActionResult> DeleteCupon(string ProductId)
+          public async Task<IActionResult> DeleteCupon(long ProductId)
         {
             var dis = _configuration.DeleteCupon(ProductId);
             if (dis != null) {
@@ -59,12 +59,7 @@ namespace DiscountAPI.Controllers
             
         }
 
-        [HttpGet]
-        public async Task<IActionResult> TestDatabaseConnection()
-        {
-            var data = _configuration.TestDatabaseConnection();
-            return Ok("Connection Sucess");
-        }
+      
 
 
 

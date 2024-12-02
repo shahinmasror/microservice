@@ -10,4 +10,13 @@
         public int Amount { get; set; }
 
     }
+
+
+    public class CuponDTO
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+
+
+    }
 }

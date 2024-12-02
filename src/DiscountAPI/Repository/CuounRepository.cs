@@ -14,10 +14,10 @@ namespace DiscountAPI.Repository
         _configuration = configuration;
         }
 
-        public async Task<bool> CreateCupon(Cupon cupon)
+        public async Task<bool> CreateCupon(string name)
         {
-            var connection = new NpgsqlConnection(_configuration.GetConnectionString("DiscountDB"));
-            var data = await connection.ExecuteAsync("Insert into Cupon(ProductId,ProductName,Description,Amount) Values(@ProductId,@ProductName,@Description,@Amount)", new { ProductId = cupon.ProductId, ProductName = cupon.ProductName, Description = cupon.Description, Amount = cupon.Amount });
+            using var connection = new NpgsqlConnection(_configuration.GetConnectionString("Discount"));
+            var data = await connection.ExecuteAsync("Insert into Cupon(name) Values(@name)", new { @name = name});
             if(data == null)
             {
                 return false;
@@ -26,10 +26,10 @@ namespace DiscountAPI.Repository
 
         }
 
-        public async Task<bool> DeleteCupon(string ProductId)
+        public async Task<bool> DeleteCupon(long ProductId)
         {
-            var connection = new NpgsqlConnection(_configuration.GetConnectionString("DiscountDB"));
-            var delete = await connection.ExecuteAsync("Delete from Cupon where productId= @productId  ",new {ProductId = ProductId});
+            using var connection = new NpgsqlConnection(_configuration.GetConnectionString("Discount"));
+            var delete = await connection.ExecuteAsync("Delete from Cupon where id= @productId  ",new { productId = ProductId});
             if (delete > 0)
             {
                 return false;
@@ -38,9 +38,9 @@ namespace DiscountAPI.Repository
 
         }
 
-        public async Task<Cupon> GetDiscount(string ProductId)
+        public async Task<CuponDTO> GetDiscount(long ProductId)
         {
-            await using var connection = new NpgsqlConnection(_configuration.GetConnectionString("DiscountDB"));
+             using var connection = new NpgsqlConnection(_configuration.GetConnectionString("Discount"));
             //await connection.OpenAsync(); // Ensure connection is open
             //var copon = await connection.QueryFirstOrDefaultAsync<Cupon>(
             //    //"SELECT * FROM Cupon WHERE ProductId = @ProductId",
@@ -55,10 +55,10 @@ namespace DiscountAPI.Repository
 
             try
             {
-                var copon = await connection.QueryFirstOrDefaultAsync<Cupon>(
-                    "SELECT * FROM Cupon WHERE ProductId = @ProductId",
-                    new { ProductId }).ConfigureAwait(false);
-                return copon ?? new Cupon() { Amount = 0, ProductName = "No Discount" };
+                var copon =  await connection.QueryFirstOrDefaultAsync<CuponDTO>(
+                    "select * from Cupon where id=@productId", new { productId = ProductId })
+                   ;
+                return copon;
             }
             catch (Exception ex)
             {
@@ -68,20 +68,13 @@ namespace DiscountAPI.Repository
 
         }
 
-        public async Task<bool> TestDatabaseConnection()
+       
+
+
+        public async Task<bool> UpdateCupon(string name)
         {
-            await using var connection = new NpgsqlConnection(_configuration.GetConnectionString("DiscountDB"));
-            await connection.OpenAsync();
-            var result = await connection.QueryFirstOrDefaultAsync<string>("SELECT 'Test Connection';");
-            return result == "Test Connection";
-        }
-
-
-
-        public async Task<bool> UpdateCupon(Cupon cupon)
-        {
-            var connection = new NpgsqlConnection(_configuration.GetConnectionString("DiscountDB"));
-            var update = await connection.ExecuteAsync("Update Cupon Set ProductId= @ProductId,ProductName = @ProductName,Description= @Description,Amount=@Amount", new { ProductId = cupon.ProductId, ProductName = cupon.ProductName, Description = cupon.Description, Amount = cupon.Amount });
+            using var connection = new NpgsqlConnection(_configuration.GetConnectionString("Discount"));
+            var update = await connection.ExecuteAsync("Update Cupon Set name= @name where id=1", new { name = name});
             if(update > 0)
             {
                 return true;

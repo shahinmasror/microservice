@@ -1,0 +1,1 @@
+﻿ Scaffold-DbContext "Host=localhost;Database=DiscountDB;Username=postgres;Password=12345" Npgsql.EntityFrameworkCore.PostgreSQL -OutputDir "Entity/PDSaas" -ContextDir "Data" -Context "AppDbContext" -Tables Cupon -Force

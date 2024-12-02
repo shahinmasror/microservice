@@ -1,8 +1,10 @@
+using DiscountAPI.Context;
 using DiscountAPI.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+//builder.AddNpgsqlDbContext<AppDbContext>("Discout");
 builder.Services.AddScoped<ICuponRepository,CuounRepository>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
